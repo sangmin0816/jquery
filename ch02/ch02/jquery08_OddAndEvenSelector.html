@@ -12,8 +12,11 @@
     <script>
     $(document).ready(function(){
         //td의 인덱스가 짝수 번째는 글자색을 빨강, 글자 크기를 30px로 변경 - 메서드 체이닝
+        $("td:even").css("color", "red").css("font-size", "30px");
         
         //td의 인덱스 홀수 번째는 배경색을 빨강, 글자 크기를 30pt로 변경 - 속성 열거법
+        var td_css = {"color": "red", "font-size": "30px"};
+        $("td:even").css(td_css);
         
     });    
     </script>

@@ -11,8 +11,8 @@
     <section class="container">
         <h1>인접 요소 선택</h1>
         <p>
-            <em> one  </em>   <a> two  </a>   <a> three  </a>   <b> four </b>   <a> five </a>   <em> six </em>
-            <a> seven </a>
+            <em> one  </em>   <a> two  </a>   <a> three  </a>   <b> four </b>   <a> five </a>   
+            <em> six </em> <a> seven </a>
         </p>
     </section><br><hr><br>
     <div>
@@ -22,12 +22,48 @@
      <div id="result2">
         <span> prev ~ nextall로 검색된 엘리먼트 : </span>
      </div> 
+
+     <img src="" alt="" id="character1">
+     <button id="btn2">애니메이션 정지 출력</button>
+     <button id="btn3">애니메이션 뒤집기</button>
+
+
      <script>
      $(function(){
         //em의 바로 다음에 나오는 a요소의 텍스트를 찾아 클래스가 result1인 곳에 출력
 
-        //em의 동생들 요소중에서 a요소의 텍스트를 찾아 아이디가 result2인 곳에 출력
+        $(".result1").text($("em + a").text());
 
+        //em의 동생들 요소중에서 a요소의 텍스트를 찾아 아이디가 result2인 곳에 출력
+        $("#result2").text($("#result2").text()+$("em ~ a").text());
+
+        $("em + a").each(function(){
+            $(".result1").append($(this).text());
+        })
+
+        $.each($("em ~ a"), function(index, value){
+            $("#result2").append(value);
+        })
+        
+        var i=0;
+        function ani(){    
+            i=i%18+1;
+            $("#character1").attr("src", "../data/img/ani"+i+".png");
+            i++;
+        }
+
+        var interval1 = setInterval(function(){ani();}, 80);
+
+        var sw = true;
+        $("#btn2").click(function(){
+            if(sw){
+                clearInterval(interval1);
+            } else{
+                var lt = setInterval(function(){ani();}, 80);
+            }
+            sw = !sw;
+            console.log(sw);
+        })
      });   
      </script> 
 </body>
