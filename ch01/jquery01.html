@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+   <script src="code.jquery.com_jquery-3.7.0.js"></script>
+   <script>
+      function third(){
+         $("#h2_3").text("요렇게 따로따로도 가능");
+         console.log("Is this working?")
+      }
+
+      $(document).ready(function(){
+         var text = $("#h2_1").text();
+         text+=" Script is Working ";
+         $("#h2_1").text(text);
+         console.log(text);
+         third();
+
+         $(".red").css("background-color", "red");
+      });
+   </script>
+
+</head>
+<body>
+   <h2 id="h2_1">Original Header →</h2>
+   <h2 id="h2_2"></h2>
+   <h2 class="red" id="h2_3"></h2>
+   <ul class="lst">
+      <li>아이템1</li>
+      <li>아이템2</li>
+      <li>아이템3</li>
+   </ul>
+   <button id="btn1">요소 추가</button>
+
+   
+</body>
+</html>
+
+<script>
+   $(function(){
+      var text2 = $("#h2_2").text();
+      text2+=" document.ready 생략 가능"
+      $("#h2_2").text(text2);
+   });
+
+   $(function(){
+      $(".lst li").click(function(){
+         alrert($(this).text());
+      });
+      
+      var sw = true;
+      $("#btn1").click(function(){
+         if(sw){
+            $("#h2_2").css("color", "blue");
+         } else{
+            $("#h2_2").css("color", "black");
+         }
+         sw = !sw;
+         var len = $(".lst li").length + 1;
+         $(".lst").append("<li>아이템"+len+"</li>");
+         $(".lst li").css("background-color", "white");
+         $(".lst li:last-child").css("background-color", "pink");
+      })
+   })
+</script>
+
