@@ -41,6 +41,47 @@
    //아이디, 이름, 암호, 암호확인을 입력하고, #regBtn을 누르면
    //데이터의 유효성을 검사하도록 하고, 그 데이터를 ajaxJoin.do로
    //비동기방식으로 보내도록 하시오.
+
+   $("#userName").click(function(){
+    $(this).val("");
+   });
+
+   var pass = false;
+   var source = {"userId": $("#usderId").val(), "userName": $("#userName").val(), "pwd": $("#pwd").val()};
+   $("#regBtn").click(function(){
+        $(":text, :password").each(function(){
+            if($(this).val()==""){
+                alert("데이터 입력 필수");
+                $(this).focus();
+                pass = false;
+                return false;
+            }
+            else {
+                pass = true;
+            }
+        })
+        if($("#pwd").val()!=$("#pwdConfirm").val()){
+            alert("비밀 번호와 비밀번화 확인이 다릅니다.");
+            return false;
+        }
+        confirm();
+   });
+   function confirm(){
+    if(pass==true){
+            $.ajax({
+                url: "/JoinPro.do?member="+source,
+                type: "get",
+                dataType: "json", // 전송하는 자바 스크립트 객체
+                success: function(data){
+                    alert("전송 성공");
+                    $("#msg").text(data);
+                }, // 전송 성공시
+                error: function(data, status, error){
+                    alert(data+"가 "+error+"로 인하여 비정상 처리됨");
+                }, // 전송 실패 시
+            })
+        }
+   }
        
     });    
     </script>
