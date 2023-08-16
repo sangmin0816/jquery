@@ -27,10 +27,10 @@
         $("button").click(function(){
             $(this).prev("div").css("background-color", "yellow");
             $(this).next("div").css("background-color", "red");
-            $("div").next().addClass("after");
-            $("div").next(".middle").addClass("sel");
+            $("div").nextAll().addClass("after");
+            $("div").nextAll(".middle").addClass("sel");
             $("div").prev("span").css("color", "orange");
-            $("div").prev().css("padding", "25px");
+            $("div").prevAll().css("padding", "25px");
         })
 
     });    
