@@ -21,18 +21,20 @@
         <article class="data">
             <div class="imgFrame">
                 <button> 어트리뷰트 값 제거하기 </button> 
-                <img src="yourPhoto1.jpg" title="당신의 애인사진1" alt="Lover picture">
+                <img src="../data/album-af.jpg" title="당신의 애인사진1" alt="Lover picture">
            </div>     
            <div class="imgFrame">
                 <button> 어트리뷰트 값 제거하기 </button> 
-                <img src="yourPhoto2.jpg" title="당신의 애인사진2" alt="Lover picture"> 
+                <img src="../data/album-ag.jpg" title="당신의 애인사진2" alt="Lover picture"> 
            </div>
         </article>
     </section><br><hr><br>
     <script>
     $(document).ready(function(){
         //버튼을 클릭하면, 그 버튼의 다음 요소인 img 요소의 src 속성을 제거하시오.
-
+        $("button").click(function(){
+            $(this).next().removeAttr("src");
+        })
     });    
     </script>
 </body>

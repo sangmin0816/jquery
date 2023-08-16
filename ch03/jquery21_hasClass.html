@@ -27,7 +27,18 @@
     <script>
     $(document).ready(function(){
         //버튼을 클릭하면, img1 클래스의 img 요소에 .gbor, .bbor, .rbor 을 교대로 적용
-
+        $("button").click(function(){
+            $(".img1").each(function(){
+                if($(this).hasClass("gbor")){
+                    $(this).removeClass("gbor").addClass("bbor");
+                } else if($(this).hasClass("bbor")){
+                    $(this).removeClass("bbor").addClass("rbor");
+                }
+                else if($(this).hasClass("rbor")){
+                    $(this).removeClass("rbor").addClass("gbor");
+                }
+            });
+        })
     });    
     </script>
 </body>

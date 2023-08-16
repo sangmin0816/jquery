@@ -28,7 +28,10 @@
     $(document).ready(function(){
         
         //p 요소를 클릭하면, 클릭된 요소의 태그를 포함하여 아이디가 console인 곳에 텍스트 형태로 출력
-        
+        $("p").click(function(){
+            $("#console").text($(this).html()); // 넌 내게 <button name="oktbtn">조금씩</button> 멀어지는 것을 느끼며
+            $("#console").html($(this).html()); // html 형태로
+        })
     });    
     </script>
 </body>

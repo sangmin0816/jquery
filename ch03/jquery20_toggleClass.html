@@ -25,7 +25,9 @@
     <script>
     $(document).ready(function(){
         //버튼을 클릭하면, img1 클래스의 img 요소에 .gbor을 교대로 적용
-
+        $("button").click(function(){
+            $(".img1").toggleClass("gbor");
+        })
     });    
     </script>
 </body>

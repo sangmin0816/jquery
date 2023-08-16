@@ -25,9 +25,16 @@
     <script>
     $(document).ready(function(){
         //아이디가 reset 인 버튼을 클릭하면, 아이디가 m_id 인 요소의 입력값을 비우고,
-        
+        $("#reset").click(function(){
+            $("#m_id").val("");
+        })
+
         //아이디가 submit 인 버튼을 클릭하면, 값이 비어 있는지 검증을 하고, 값이 있는 경우 그 값을 아이디가 console 인 곳에 텍스트로 출력
-        
+        $("#submit").click(function(){
+            if($("#m_id").val()!=""){
+                $("#console").text($("#m_id").val());
+            }
+        })
     });    
 
     </script>
