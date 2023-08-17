@@ -14,7 +14,13 @@
     </style>
     <script>
     $(document).ready(function(){
+        var em_css = {"color": "red", "background-color": "pink"};
         //p 요소를 클릭하면, 클릭된 요소 후손 중에서 em 요소에 대한 글자색을 빨강으로 하고, 배경색은 핑크색으로 설정
+        $("p").each(function(){
+            $(this).click(function(){
+                $(this).find("em").css(em_css);
+            })
+        })
 
     });    
     </script>
@@ -24,7 +30,7 @@
         <h1>선택자 후손 요소 선택 메소드 - find()</h1>
         <article class="data">
             <div> p 엘리먼트 중에서 <em> 이태릭 단어의 </em>  </div> 
-            <p> 글자 <b> <em>색</em> </b> 을 <em> 빨간색으로 </em>변경한다.</p> 
+            <p> 글자 <b> <em>색</em> </b> 을 <em> 빨간색으로 </em>변경한다.</p>
             <p> 글자 <strong> <em>색</em> </strong> 을 <em> 빨간색으로 </em>변경한다.</p>
         </article>
     </section><br><hr><br>

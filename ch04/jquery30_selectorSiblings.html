@@ -13,11 +13,13 @@
     .data:after { content:""; display:block; clear:both; }
     ul { float:left; margin:5px; font-size:16px; font-weight:bold; } 
     p { color:blue; margin:10px 20px; font-size:16px; padding:5px;    font-weight:bolder; } 
-   .yw { background:yellow; }
+   .yw { background:yellow; color:deep}
     </style>
     <script>
     $(document).ready(function(){
         //클래스가 yw인 요소의 글자색을 짙은 하늘색으로 설정하고, 그 형제들의 글자색은 빨강으로 하며, 그 형제들의 개수를 구하여 p요소의 내부 요소인 u 요소의 텍스트로 출력하라.
+        $(".yw").css("color", "deepskyblue").siblings().css("color", "red");
+        $("p u").text($(".yw").siblings().length);
 
     });    
     </script>
@@ -27,15 +29,13 @@
         <h1>선택자 형제 요소 선택 메소드 - siblings()</h1>
         <article class="data">
             <ul>
-                <li>One</li>    <li>Two</li>    <li class="yw">Three</li> 
-                   <li>Four</li>
+                <li>One</li> <li>Two</li> <li class="yw">Three</li> <li>Four</li>
             </ul>
             <ul>
                 <li>Five</li>    <li>Six</li>    <li>Seven</li>
             </ul>
             <ul>
-                <li>Eight</li>    <li class="yw">Nine</li>    <li>Ten</li>  
-                <li>Eleven</li>
+                <li>Eight</li>    <li class="yw">Nine</li>    <li>Ten</li>  <li>Eleven</li>
             </ul>
             <p>    찾은 형제 엘리먼트의 개수: <u></u>개  </p>
         </article>
